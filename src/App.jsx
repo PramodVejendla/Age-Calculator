@@ -9,9 +9,9 @@ function App() {
   const [age, setAge] = useState([
     {
       id,
-      ageDays: 0,
-      ageMonths: 0,
-      ageYears: 0,
+      ageDays: "--",
+      ageMonths: "--",
+      ageYears: "--",
     },
   ]);
 
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <div className=" bg-white py-8  pl-4 pr-16 rounded-t-xl  rounded-bl-xl rounded-br-custom">
+      <div className=" bg-white py-10  pl-4 pr-16 rounded-t-xl  rounded-bl-xl rounded-br-custom">
         <DateInputForm onSave={calculateAgeHandler} />
         {age.map((item) => {
           return (
