@@ -16,17 +16,36 @@ function App() {
   ]);
 
   const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth() + 1;
-  const day = currentDate.getDate();
-  // console.log(year, month, day);
+  const cyear = currentDate.getFullYear();
+  const cmonth = currentDate.getMonth() + 1;
+  const cday = currentDate.getDate();
 
   const calculateAgeHandler = (data) => {
-    const ageYears = year - data[0].year;
+    const bYear = data[0].year;
+    const bMonth = data[0].month;
+    const bDay = data[0].day;
 
-    const ageMonths = month - data[0].month;
+    let ageYears = cyear - bYear;
+    let ageMonths;
+    let ageDays;
 
-    const ageDays = day - data[0].day;
+    if (cmonth >= bMonth) {
+      ageMonths = cmonth - bMonth;
+    } else {
+      ageYears--;
+      ageMonths = 12 + cmonth - bMonth;
+    }
+
+    if (cday >= bDay) {
+      ageDays = cday - bDay;
+    } else {
+      ageMonths--;
+      ageDays = 31 + cday - bDay;
+    }
+    if (ageMonths < 0) {
+      ageMonths = 11;
+      ageYears--;
+    }
 
     const calculatedAge = [
       {

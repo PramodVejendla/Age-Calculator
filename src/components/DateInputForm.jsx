@@ -48,11 +48,12 @@ function DateInputForm(props) {
         year,
       },
     ];
+
     props.onSave(BirthDate);
 
-    setDay("");
-    setMonth("");
-    setYear("");
+    // setDay("");
+    // setMonth("");
+    // setYear("");
     setValidBirthDate(true);
     setIsEmpty(false);
   };
